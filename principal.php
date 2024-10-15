@@ -1,8 +1,6 @@
 <?php 
     include 'header.php';
 ?>
-        <p><h1>Olá <?PHP echo"$nome"; ?>, bem-vindo à Página Principal</h1></p>
-
         <div class="content">
         <table>
             <tr>

@@ -19,8 +19,9 @@ Relatórios
 BASE
 
 Usuários
-- login
+- nome
 - senha
+- email
 - rankiing
 	- 1 - administrador - admin.php
 	- 2 - operador - paradas.php
@@ -149,15 +150,15 @@ Estoque de brindes
 Brindes
 - nome
 - descrição
-- qtd_inicio
+- qtd_inicial
 - qtd_atual
 
-Reposição
+Repor_brindes
 - fk_brindes
-- quantidade
+- qtd
 - data
 
-Retirada
+Retirar_brindes
 - fk_brindes
-- quantidade
+- qtd
 - data/hora
