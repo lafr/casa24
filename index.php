@@ -12,7 +12,7 @@
         <form action="login.php" method="post">
             <input type="text" name="usuario" placeholder="Usuário" required>
             <input type="password" name="senha" placeholder="Senha" required>
-            <?PHP $senha = password_hash($senha, PASSWORD_DEFAULT); ?>
+
             <button type="submit">Entrar</button>
         </form>
     </div>

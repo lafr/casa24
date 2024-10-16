@@ -16,16 +16,18 @@
             <tr>
                 <th>Brinde</th>
                 <th>Descrição</th>
-                <th>Quantidade</th>
+                <th>Qtd. Inicial</th>
+                <th>Qtd. Atual</th>
                 <th>Editar</th>
             </tr>";
 
     for ($i = 0; $i < $linhas_brindes; $i++) {
         $registro_brindes = mysqli_fetch_array($resultado_brindes);
         $id_brinde = $registro_brindes['id_brinde'];
-        $nome_brinde = $registro_brindes['nome_brinde'];
-        $descricao_brinde = $registro_brindes['descricao_brinde'];
-        $quantidade_brinde = $registro_brindes['quantidade_brinde'];
+        $nome = $registro_brindes['nome'];
+        $descricao = $registro_brindes['descricao'];
+        $qtd_inicial = $registro_brindes['qtd_inicial'];
+        $qtd_atual = $registro_brindes['qtd_atual'];
 
         if ($cor_fundo == "lightgray") {
             $cor_fundo = "white";
@@ -34,10 +36,11 @@
         }
 
         echo "<tr style='background-color:$cor_fundo'>
-                <td>$nome_brinde</td>
-                <td>$descricao_brinde</td>
-                <td>$quantidade_brinde</td>
-                <td><button>Acrescentar</button><button>retirar</button></td>
+                <td>$nome</td>
+                <td>$descricao</td>
+                <td>$qtd_inicial</td>
+                <td>$qtd_atual</td>
+                <td><button><a href='brindes.php?acao=repor&id_brinde=$id_brinde'>Repor</a></button>&nbsp;<button><a href='brindes.php?acao=retirar&id_brinde=$id_brinde'>Retirar</a></button></td>
               </tr>";
     }
 
@@ -54,13 +57,65 @@
     echo "<div class='formulario'>";
         if ($acao == "novo") {
             echo "<div class='content'>
-                <form action='brindes.php' method='POST'>
-                    <label>Nome do brinde:</label><input type='text' name='nome_brinde' required><br>
-                    <label>Descrição:</label><textarea name='descricao_brinde' required rows='6'></textarea><br>
-                    <label>Quantidade:</label><input type='number' name='quantidade_brinde' required><br>
+                <h2>Cadastro de brindes</h2>
+                <form action='insere_brindes.php' method='POST'>
+                    <label>Nome do brinde:</label><input type='text' name='nome' id='nome' required><br>
+                    <label>Descrição:</label><textarea name='descricao' id='descricao' required rows='6'></textarea><br>
+                    <label>Quantidade:</label><input type='number' name='quantidade' id='quantidade' required><br>
                     <button type='submit' name='acao' value='novo_brinde'>Cadastrar</button>
                 </form>
             </div>";
         }
     echo "</div>";
+
+    if ($acao == "repor" && $user_ranking == '1' or $user_ranking == '5') {
+        echo "<div class='formulario'>
+            <h2>Acrescenta brindes</h2>";
+
+            $sql_brindes = "SELECT * FROM brindes where id_brinde = $id_brinde";
+            $resultado_brindes = mysqli_query($conn, $sql_brindes);
+            $linhas_brindes = mysqli_num_rows($resultado_brindes);
+
+            while($row_brindes = $resultado_brindes->fetch_assoc()) {
+                $id_brinde = $row_brindes['id_brinde'];
+                $nome = $row_brindes['nome'];
+                $descricao = $row_brindes['descricao'];
+                $qtd_inicial = $row_brindes['qtd_inicial'];
+                $qtd_atual = $row_brindes['qtd_atual'];
+            
+                echo "<form action='edita_brindes.php' method='post'>
+                    $nome | qtd. atual: $qtd_atual<br>
+                    Repor: <input type='number' name='qtd' id='qtd' required><br>
+                    <input type='hidden' name='id_brinde' value='$id_brinde'>
+                    <input type='hidden' name='acao' value='repor'>
+                    <button type='submit'>Acrescentar</button>
+                    </form>";
+                }
+        echo "</div>";
+    }
+    if ($acao == "retirar" && $user_ranking == '1' or $user_ranking == '5') {
+        echo "<div class='formulario'>
+            <h2>Acrescenta brindes</h2>";
+
+            $sql_brindes = "SELECT * FROM brindes where id_brinde = $id_brinde";
+            $resultado_brindes = mysqli_query($conn, $sql_brindes);
+            $linhas_brindes = mysqli_num_rows($resultado_brindes);
+
+            while($row_brindes = $resultado_brindes->fetch_assoc()) {
+                $id_brinde = $row_brindes['id_brinde'];
+                $nome = $row_brindes['nome'];
+                $descricao = $row_brindes['descricao'];
+                $qtd_inicial = $row_brindes['qtd_inicial'];
+                $qtd_atual = $row_brindes['qtd_atual'];
+            
+                echo "<form action='edita_brindes.php' method='post'>
+                    $nome | qtd. atual: $qtd_atual<br>
+                    Retirar: <input type='number' name='qtd' id='qtd' required><br>
+                    <input type='hidden' name='id_brinde' value='$id_brinde'>
+                    <input type='hidden' name='acao' value='retirar'>
+                    <button type='submit'>Acrescentar</button>
+                    </form>";
+                }
+        echo "</div>";
+    }
 ?>

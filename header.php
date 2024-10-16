@@ -5,6 +5,10 @@
     $user_ranking = $_SESSION['user_ranking'];
     $user_nome = $_SESSION['user_nome'];
 
+    if ($user_ranking == '') {
+        header("Location: index.php");
+    }
+
     $dia = date('d'); $mes = date('m'); $ano = date('Y');
     $data_formato = $dia . "/" . $mes . "/" . $ano;
 ?>
