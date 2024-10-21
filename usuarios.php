@@ -30,6 +30,8 @@
         $ranking = $registro['ranking'];
         $ultimo_acesso = $registro['ultimo_acesso'];
 
+        $ultimo_acesso = date('d/m/Y - H:i', strtotime($ultimo_acesso));
+
         if ($ranking == 1) {
             $ver_ranking = "Admin";
         } elseif ($ranking == 2) {

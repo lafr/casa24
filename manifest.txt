@@ -32,24 +32,35 @@ Usuários
 - status
 
 Paradas
+
+- evento_data_inicio
+- evento_num_dias
+- fk_usuario
+
+Clientes
+
 - nome
+- razao
 - sap
 - CNPJ
 - endereço
 - bairro
 - cep
-- uf
 - cidade
+- uf
+- representante
 - ddd
 - telefone
 - email
-- responsável
-- evento_data_inicio
-- evento_num_dias
-- fk_usuario
+- fk_contato
+- tipo
+	- 1 - posto
+	- 2 - distribuidor
+	- 3 - cliente
+	- 4 - outro
 
 Midias
-- fk_parada
+- fk_cliente
 - rede
 	- 1 - facebook
 	- 2 - instagram

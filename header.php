@@ -9,8 +9,18 @@
         header("Location: index.php");
     }
 
-    $dia = date('d'); $mes = date('m'); $ano = date('Y');
-    $data_formato = $dia . "/" . $mes . "/" . $ano;
+    $hoje_formato = date('d/m/Y');
+    $hoje = date('Y-m-d');
+
+    $sql_paradas = "SELECT * FROM paradas";
+    $result_paradas = mysqli_query($conn, $sql_paradas);
+    $total_paradas = mysqli_num_rows($result_paradas);
+
+   $sql_proxima_parada = "SELECT * FROM paradas WHERE evento_data_inicio > '$hoje' ORDER BY evento_data_inicio ASC LIMIT 1";
+    $result_proxima_parada = mysqli_query($conn, $sql_proxima_parada);
+    $row_proxima_parada = mysqli_fetch_assoc($result_proxima_parada);
+    $data_proxima_parada = $row_proxima_parada['evento_data_inicio'];
+    $ver_proxima_parada = date('d/m/Y', strtotime($data_proxima_parada));
 ?>
     <!DOCTYPE html>
     <html lang='pt-BR'>
@@ -30,7 +40,7 @@
             <button><a href="principal.php">Início</a></button>
             <button><a href="usuarios.php">Usuários</a></button>
             <button><a href="paradas.php">Paradas</button</a></button>
-            <button><a href="distribuidores.php">Distribuidores</a></button>
+            <button><a href="clientes.php">Clientes</a></button>
             <button><a href="brindes.php">Brindes</a></button>
             <button><a href="relatorios.php">Relatórios</a></button>
             <button>Sair</button>
@@ -40,7 +50,7 @@
         <img src="img/logo_casa.png" alt="Casa Siga Bem" height="120px" style="margin-right: 20px;">
         <div class="top-ficha">
             <h1>Olá, <?PHP echo"$user_nome"; ?></h1>
-            <h3><?PHP echo "$data_formato"; ?> - Próximo evento em X dias<br>
-            Nr. de interações: XXXX | Dias de evento: XX</h3>
+            <h3><?PHP echo "$hoje_formato"; ?> - Próximo evento no dia <?PHP echo"$ver_proxima_parada"; ?><br>
+            Nr. de interações: XXXX | Total: <?PHP echo"$total_paradas"; ?> dias</h3>
         </div>
     </div>
