@@ -33,10 +33,13 @@ Usuários
 
 Paradas
 - nome
+- sap
 - CNPJ
 - endereço
 - bairro
 - cep
+- uf
+- cidade
 - ddd
 - telefone
 - email
