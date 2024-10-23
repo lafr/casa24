@@ -8,11 +8,10 @@
 </head>
 <body>
     <div class="login">
-        <header>Login</header>
         <form action="login.php" method="post">
+        <header>Login</header>
             <input type="text" name="usuario" placeholder="Usuário" required>
             <input type="password" name="senha" placeholder="Senha" required>
-
             <button type="submit">Entrar</button>
         </form>
     </div>

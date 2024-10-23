@@ -54,7 +54,7 @@
     $resultado_repostas = mysqli_query($conn, $sql_repostas);
     $linhas_repostas = mysqli_num_rows($resultado_repostas);
 
-    echo "<div class='formulario'>";
+    echo "<div class='bloco_centro'>";
         if ($acao == "novo") {
             echo "<div class='content'>
                 <h2>Cadastro de brindes</h2>
@@ -69,8 +69,7 @@
     echo "</div>";
 
     if ($acao == "repor" && $user_ranking == '1' or $user_ranking == '5') {
-        echo "<div class='formulario'>
-            <h2>Acrescenta brindes</h2>";
+        echo "<div class='bloco_centro'>";
 
             $sql_brindes = "SELECT * FROM brindes where id_brinde = $id_brinde";
             $resultado_brindes = mysqli_query($conn, $sql_brindes);
@@ -83,19 +82,20 @@
                 $qtd_inicial = $row_brindes['qtd_inicial'];
                 $qtd_atual = $row_brindes['qtd_atual'];
             
-                echo "<form action='edita_brindes.php' method='post'>
-                    $nome | qtd. atual: $qtd_atual<br>
-                    Repor: <input type='number' name='qtd' id='qtd' required><br>
+                echo "<div class='content'><form action='edita_brindes.php' method='post'>
+                 <h2>Repor brindes</h2>
+                    $nome | qtd.: $qtd_atual<br>
+                    <input type='number' name='qtd' id='qtd' required><br>
                     <input type='hidden' name='id_brinde' value='$id_brinde'>
                     <input type='hidden' name='acao' value='repor'>
                     <button type='submit'>Acrescentar</button>
-                    </form>";
+                    </form>
+                    </div>";
                 }
         echo "</div>";
     }
     if ($acao == "retirar" && $user_ranking == '1' or $user_ranking == '5') {
-        echo "<div class='formulario'>
-            <h2>Acrescenta brindes</h2>";
+        echo "<div class='bloco_centro'>";
 
             $sql_brindes = "SELECT * FROM brindes where id_brinde = $id_brinde";
             $resultado_brindes = mysqli_query($conn, $sql_brindes);
@@ -108,13 +108,15 @@
                 $qtd_inicial = $row_brindes['qtd_inicial'];
                 $qtd_atual = $row_brindes['qtd_atual'];
             
-                echo "<form action='edita_brindes.php' method='post'>
-                    $nome | qtd. atual: $qtd_atual<br>
-                    Retirar: <input type='number' name='qtd' id='qtd' required><br>
+                echo "<div class='content'><form action='edita_brindes.php' method='post'>
+                    <h2>Retirar brindes</h2>
+                    $nome | qtd.: $qtd_atual<br>
+                    <input type='number' name='qtd' id='qtd' required><br>
                     <input type='hidden' name='id_brinde' value='$id_brinde'>
                     <input type='hidden' name='acao' value='retirar'>
-                    <button type='submit'>Acrescentar</button>
-                    </form>";
+                    <button type='submit'>Retirar</button>
+                    </form>
+                    </div>";
                 }
         echo "</div>";
     }

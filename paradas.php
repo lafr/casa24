@@ -83,7 +83,7 @@
     
         echo "<tr style='background-color:" . $cor_fundo . "'>";
         echo "<td>" . $i . "</td>";
-        echo "<td>" . $ver_data_limpa . " <a href='edita_parada.php?acao=sobe&id_parada=" . $id_parada . "&evento_data_inicio=" . $evento_data_inicio . "'><img src='img/sobe.png'></a> <a href='edita_parada.php?acao=desce&id_parada=" . $id_parada . "&evento_data_inicio=" . $evento_data_inicio . "'><img src='img/desce.png'></a></td>";
+        echo "<td>" . $ver_data_limpa . " <a href='edita_parada.php?acao=sobe&id_parada=" . $id_parada . "&evento_data_inicio=" . $evento_data_inicio . "'><img src='img/up.png' style='width: 20px;'></a> <a href='edita_parada.php?acao=desce&id_parada=" . $id_parada . "&evento_data_inicio=" . $evento_data_inicio . "'><img src='img/down.png' style='width: 20px;'></a></td>";
         echo "<td>" . $ver_dia_semana . "</td>";
         echo "<td>" . $row_cliente['sap'] . "</td>";
         echo "<td>" . $razao . "</td>";
