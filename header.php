@@ -1,6 +1,10 @@
 <?PHP
+/**
+ * Verificar a conta nr. de dias para contar só os eventos ou todo o roteiro
+ */
     session_start();
     include "conecta.php";
+    include "total_servicos.php";
 
     $user_ranking = $_SESSION['user_ranking'];
     $user_nome = $_SESSION['user_nome'];
@@ -38,10 +42,10 @@
 
         <div class="top-bar">
             <button><a href="principal.php">Início</a></button>
-            <button><a href="usuarios.php">Usuários</a></button>
             <button><a href="paradas.php">Paradas</button</a></button>
             <button><a href="clientes.php">Clientes</a></button>
             <button><a href="brindes.php">Brindes</a></button>
+            <button><a href="usuarios.php">Usuários</a></button>
             <button><a href="relatorios.php">Relatórios</a></button>
             <button><a href="sair.php">Sair</a></button>
         </div>
@@ -51,6 +55,6 @@
         <div class="top-ficha">
             <h1>Olá, <?PHP echo"$user_nome"; ?></h1>
             <h3><?PHP echo "$hoje_formato"; ?> - Próximo evento no dia <?PHP echo"$ver_proxima_parada"; ?><br>
-            Nr. de interações: XXXX | Total: <?PHP echo"$total_paradas"; ?> dias</h3>
+            Nr. de interações: <?PHP echo "$total_geral"; ?> | Total: <?PHP echo"$total_paradas"; ?> dias</h3>
         </div>
     </div>
