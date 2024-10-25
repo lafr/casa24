@@ -1,5 +1,10 @@
 <?PHP
-    include 'header.php';
+
+// relatório de brindes, total geral, log de retiradas, log de reposições
+// relatório de interações, total geral, serviços individuais
+// relatórios por serviços separados por período
+
+include 'header.php';
 
     echo "<html>
             <head>

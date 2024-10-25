@@ -1,4 +1,8 @@
 <?PHP 
+    
+    // listar eventos passados, dar números totais de cada atividade e somar tudo como total de interações
+    // criar links para uma página contendo as anotações de cada evento
+    
     include 'header.php';
 
         $sql_paradas = "SELECT * FROM paradas order by evento_data_inicio";

@@ -1,5 +1,8 @@
 <?PHP
-    include 'header.php';
+
+// ajustar o layout
+
+include 'header.php';
 
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conn, $sql);

@@ -1,4 +1,7 @@
 <?PHP
+
+    // ajustar o layout
+
     include 'header.php';
 
     $sql_paradas = "SELECT * FROM paradas order by evento_data_inicio";
