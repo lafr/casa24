@@ -43,7 +43,7 @@
             <button><a href="clientes.php">Clientes</a></button>
             <button><a href="brindes.php">Brindes</a></button>
             <button><a href="relatorios.php">Relatórios</a></button>
-            <button>Sair</button>
+            <button><a href="sair.php">Sair</a></button>
         </div>
 
     <div class="top">
