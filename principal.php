@@ -13,9 +13,6 @@
      */
 
     include 'header.php';
-    include 'total_servicos.php';
-
-    $hoje = date('Y-m-d');
 
         $sql_parada = "SELECT * FROM paradas WHERE evento_data_inicio <= '$hoje' order by evento_data_inicio desc";
         $result_parada = mysqli_query($conn, $sql_parada);
@@ -31,13 +28,13 @@
                         <th>Data</th>
                         <th>SAP</th>
                         <th>Cliente</th>
-                        <th>Corte de cabelo</th>
+                        <th>Cabelo</th>
                         <th>Manicure</th>
-                        <th>Acuidade Visual</th>
-                        <th>Serviços de saúde</th>
+                        <th>Acuidade</th>
+                        <th>Serv. saúde</th>
                         <th>Vacinas</th>
                         <th>Telemedicina</th>
-                        <th>Pulseira de identificação</th>
+                        <th>Pulseiras</th>
                         <th>Anotações</th>
                     </tr>";    
 /**

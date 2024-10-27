@@ -8,18 +8,17 @@ include 'header.php';
     $result = mysqli_query($conn, $sql);
 
     echo "<div class='content'>
+            <button><a href='$_SELF'>NOVO</a></button>
             <h1>Clientes</h1>
                 <table>
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
                         <th>SAP</th>
-                        <th>Endereço</th>
-                        <th>Bairro</th>
-                        <th>CEP</th>
-                        <th>Cidade</th>
                         <th>UF</th>
+                        <th>Cidade</th>
                         <th>Contato</th>
+                        <th>Detalhes</th>
                         <th>Cliente</th>
                     </tr>";
     
@@ -53,22 +52,18 @@ include 'header.php';
 
         $row['cep'] = substr($row['cep'], 0, 5) . '-' . substr($row['cep'], 5);
 
-        echo "<tr style='background-color:" . $cor_fundo . "'>";
-        echo "<td>" . $i . "</td>";
-        echo "<td>" . $row['razao'] . "</td>";
-        echo "<td>" . $row['sap'] . "</td>";
-        echo "<td>" . $row['endereco'] . "</td>";
-        echo "<td>" . $row['bairro'] . "</td>";
-        echo "<td>" . $row['cep'] . "</td>";
-        echo "<td>" . $row['cidade'] . "</td>";
-        echo "<td>" . $row['uf'] . "</td>";
-        echo "<td><button>CONTATO</button></td>";
-          echo "<td>" . $ver_tipo . "</td>";
-        echo "</tr>";
+        echo "<tr style='background-color:" . $cor_fundo . "'>
+                <td>" . $i . "</td>
+                <td>" . $row['razao'] . "</td>
+                <td>" . $row['sap'] . "</td>
+                <td>" . $row['uf'] . "</td>
+                <td>" . $row['cidade'] . "</td>
+                <td><button><a href='detalhes_contatos.php?id_cliente=" . $row['id_cliente'] . "'>CONTATO</a></button></td>
+                <td><button><a href='detalhes_clientes.php?id_cliente=" . $row['id_cliente'] . "'>DADOS</a></button></td>
+                <td>" . $ver_tipo . "</td>
+            </tr>";
     }
     
-    echo "</table>";
-    echo "</div>";
-
+    echo "</table></div>";
     include 'footer.php';
 ?>
