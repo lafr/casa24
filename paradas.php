@@ -1,6 +1,15 @@
 <?PHP
 
-    // ajustar o layout
+    /**
+     * Para composição do roteiro usei 3 clientes especiais para distribuir os dias de descanso, deslocamento e Vem de Vibra
+     * Se for 1000, o dia é de descanso
+     * Se for 1001, o dia é de deslocamento
+     * Se for 1002, o dia é o evento Vem de Vibra
+     * 
+     * Importante: Não pode haver dia sem eventos do início ao fim do roteiro
+     * 
+     * Os clientes especiais não existem na tabela de clientes, só nas paradas e estão apenas neste código
+     */
 
     include 'header.php';
 
@@ -83,20 +92,30 @@
         } else {
             $razao = $row_cliente['razao'];
         }
-    
-        echo "<tr style='background-color:" . $cor_fundo . "'>";
-        echo "<td>" . $i . "</td>";
-        echo "<td>" . $ver_data_limpa . " <a href='edita_parada.php?acao=sobe&id_parada=" . $id_parada . "&evento_data_inicio=" . $evento_data_inicio . "'><img src='img/up.png' style='width: 20px;'></a> <a href='edita_parada.php?acao=desce&id_parada=" . $id_parada . "&evento_data_inicio=" . $evento_data_inicio . "'><img src='img/down.png' style='width: 20px;'></a></td>";
-        echo "<td>" . $ver_dia_semana . "</td>";
-        echo "<td>" . $row_cliente['sap'] . "</td>";
-        echo "<td>" . $razao . "</td>";
-        echo "<td>" . $row_cliente['endereco'] . "</td>";
-        echo "<td>" . $row_cliente['uf'] . "</td>";
-        echo "<td>" . $row_cliente['cidade'] . "</td>";
-        echo "</tr>";
+
+        // Se o usuário for o administrador, ele pode subir ou descer a parada
+        
+        if ($user_ranking == 1) {
+            $ajuste_datas = "$ver_data_limpa <a href='edita_parada.php?acao=sobe&id_parada=$id_parada&evento_data_inicio=$evento_data_inicio'><img src='img/up.png' style='width: 20px;'></a> <a href='edita_parada.php?acao=desce&id_parada=$id_parada&evento_data_inicio=$evento_data_inicio'><img src='img/down.png' style='width: 20px;'></a>";
+        }
+        else {
+            $ajuste_datas = "$ver_data_limpa";
+        }
+
+        echo "<tr style='background-color:" . $cor_fundo . "'>
+                <td>" . $i . "</td>";
+        
+        echo "<td>" . $ajuste_datas . "</td>";
+
+        echo "  <td>" . $ver_dia_semana . "</td>
+                <td>" . $row_cliente['sap'] . "</td>
+                <td>" . $razao . "</td>
+                <td>" . $row_cliente['endereco'] . "</td>
+                <td>" . $row_cliente['uf'] . "</td>
+                <td>" . $row_cliente['cidade'] . "</td>
+            </tr>";
     }
 
     echo "</table></div>";
-
     include 'footer.php';
 ?>

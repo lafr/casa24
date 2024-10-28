@@ -18,6 +18,7 @@ include 'header.php';
                         <th>UF</th>
                         <th>Cidade</th>
                         <th>Contato</th>
+                        <th>Social</th>
                         <th>Detalhes</th>
                         <th>Cliente</th>
                     </tr>";
@@ -58,8 +59,9 @@ include 'header.php';
                 <td>" . $row['sap'] . "</td>
                 <td>" . $row['uf'] . "</td>
                 <td>" . $row['cidade'] . "</td>
-                <td><button><a href='detalhes_contatos.php?id_cliente=" . $row['id_cliente'] . "'>CONTATO</a></button></td>
-                <td><button><a href='detalhes_clientes.php?id_cliente=" . $row['id_cliente'] . "'>DADOS</a></button></td>
+                <td><button><a href='detalhes_contatos.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>CONTATO</a></button></td>
+                <td><button><a href='detalhes_sociais.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>M. SOCIAIS</a></button></td>
+                <td><button><a href='detalhes_clientes.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>DADOS</a></button></td>
                 <td>" . $ver_tipo . "</td>
             </tr>";
     }
