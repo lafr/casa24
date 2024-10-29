@@ -10,7 +10,6 @@
      * Telemedicina
      * Pulseira de identificação
      * Números de atendimentos
-     * Anotações [botão] 
      */
 
     include 'header.php';
@@ -36,8 +35,6 @@
                         <th>Vacinas</th>
                         <th>Telemedicina</th>
                         <th>Pulseiras</th>
-                        <th>Números</th>
-                        <th>Anotações</th>
                     </tr>";    
 /**
  *  Fazer o cálculo dos totais
@@ -53,8 +50,6 @@
                 <td>$total_vacinas</td>
                 <td>$total_telemedicina</td>
                 <td>$total_pulseiras</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>";
         
         while ($row_parada = mysqli_fetch_assoc($result_parada)) {
@@ -83,8 +78,6 @@
                         <td>" . $row_parada['vacinas'] . "</td>
                         <td>" . $row_parada['telemedicina'] . "</td>
                         <td>" . $row_parada['pulseiras'] . "</td>
-                        <td><button value='VER'><a href='insere_numeros.php?id_parada=" . $row_parada['id_parada'] . "'>VER</a></button></td>
-                        <td><button value='VER'><a href='insere_anotacoes.php?id_parada=" . $row_parada['id_parada'] . "'>VER</a></button></td>
                     </tr>";
             }
         }

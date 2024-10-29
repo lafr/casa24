@@ -16,13 +16,14 @@
         $sql_insere = "UPDATE paradas set cabelereiro='$cabelereiro', manicure='$manicure', acuidade='$acuidade', atd_saude='$atd_saude', vacinas='$vacinas', telemedicina='$telemedicina', pulseiras='$pulseiras' where id_parada = '$id_parada'";
         $result_insere = mysqli_query($conn, $sql_insere);
 
-        //echo $cabelereiro . " - " . $manicure . " - " . $acuidade . " - " . $atd_saude . " - " . $vacinas . " - " . $telemedicina . " - " . $pulseiras . " - " . $id_parada;
-
         header("Location: principal.php");
     }
 ?>
 
 <div class='bloco_centro'>
+    <fieldset>
+    <div class='content'>
+        <h2>Inserir números em <?php echo $_GET['razao']; ?></h2>
     <form action="insere_numeros.php" method="POST">
         <label for="cabelereiro">Corte de cabelo:</label>
         <input type="number" name="cabelereiro" id="cabelereiro" required min="0">
@@ -42,6 +43,8 @@
         <input type="hidden" name="acao" value="insere">
         <input type="submit" value="Inserir">
     </form>
+    </div>
+    </fieldset>
 </div>
 
 <?php

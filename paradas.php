@@ -50,6 +50,8 @@
                         <th>Endereco</th>
                         <th>UF</th>
                         <th>Cidade</th>
+                        <th>Números</th>
+                        <th>Anotações</th>
                     </tr>";
 
     while ($row_parada = mysqli_fetch_assoc($result_paradas)) {
@@ -102,10 +104,21 @@
             $ajuste_datas = "$ver_data_limpa";
         }
 
+        // Se o usuário for o administrador ou o operador, ele pode inserir números e anotações
+
+        if ($fk_cliente < 1000 and $user_ranking == 1 or $user_ranking == 2) {
+            $insere_numeros = "<button value='VER'><a href='insere_numeros.php?id_parada=" . $row_parada['id_parada'] . "&razao=" . $razao . "'>VER</a></button>";
+            $insere_anotacoes = "<button value='VER'><a href='insere_anotacoes.php?id_parada=" . $row_parada['id_parada'] . "'>VER</a></button>";
+        }
+        else {
+            $insere_numeros = "&nbsp;";
+            $insere_anotacoes = "&nbsp;";
+        }
+
         echo "<tr style='background-color:" . $cor_fundo . "'>
                 <td>" . $i . "</td>";
         
-        echo "<td>" . $ajuste_datas . "</td>";
+        echo "  <td>" . $ajuste_datas . "</td>";
 
         echo "  <td>" . $ver_dia_semana . "</td>
                 <td>" . $row_cliente['sap'] . "</td>
@@ -113,6 +126,8 @@
                 <td>" . $row_cliente['endereco'] . "</td>
                 <td>" . $row_cliente['uf'] . "</td>
                 <td>" . $row_cliente['cidade'] . "</td>
+                <td>$insere_numeros</td>
+                <td>$insere_anotacoes</td>
             </tr>";
     }
 

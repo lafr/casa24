@@ -56,7 +56,7 @@
 
     echo "<div class='bloco_centro'>";
         if ($acao == "novo") {
-            echo "<div class='content'>
+            echo "<div class='content'><fieldset>
                 <h2>Cadastro de brindes</h2>
                 <form action='insere_brindes.php' method='POST'>
                     <label>Nome do brinde:</label><input type='text' name='nome' id='nome' required><br>
@@ -64,7 +64,7 @@
                     <label>Quantidade:</label><input type='number' name='quantidade' id='quantidade' required><br>
                     <button type='submit' name='acao' value='novo_brinde'>Cadastrar</button>
                 </form>
-            </div>";
+            </fieldset></div>";
         }
     echo "</div>";
 
@@ -82,7 +82,7 @@
                 $qtd_inicial = $row_brindes['qtd_inicial'];
                 $qtd_atual = $row_brindes['qtd_atual'];
             
-                echo "<div class='content'><form action='edita_brindes.php' method='post'>
+                echo "<div class='content'><fieldset><form action='edita_brindes.php' method='post'>
                  <h2>Repor brindes</h2>
                     $nome | qtd.: $qtd_atual<br>
                     <input type='number' name='qtd' id='qtd' required><br>
@@ -90,6 +90,7 @@
                     <input type='hidden' name='acao' value='repor'>
                     <button type='submit'>Acrescentar</button>
                     </form>
+                    </fieldset>
                     </div>";
                 }
         echo "</div>";
@@ -108,7 +109,7 @@
                 $qtd_inicial = $row_brindes['qtd_inicial'];
                 $qtd_atual = $row_brindes['qtd_atual'];
             
-                echo "<div class='content'><form action='edita_brindes.php' method='post'>
+                echo "<div class='content'><fieldset><form action='edita_brindes.php' method='post'>
                     <h2>Retirar brindes</h2>
                     $nome | qtd.: $qtd_atual<br>
                     <input type='number' name='qtd' id='qtd' required><br>
@@ -116,6 +117,7 @@
                     <input type='hidden' name='acao' value='retirar'>
                     <button type='submit'>Retirar</button>
                     </form>
+                    </fieldset>
                     </div>";
                 }
         echo "</div>";

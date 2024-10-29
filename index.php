@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="login">
+    <div class="login"><fieldset><div class="content">
         <form action="login.php" method="post">
         <header>Login</header>
             <input type="text" name="usuario" placeholder="Usuário" required>
             <input type="password" name="senha" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
-    </div>
+    </div></fieldset></div>
 </body>
 </html>
