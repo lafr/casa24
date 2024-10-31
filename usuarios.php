@@ -79,27 +79,30 @@
         elseif ($ranking==4){ $r_key = 'selected'; }
         elseif ($ranking==5){ $r_estoquista = 'selected'; }
 
-        echo "<div class='formulario'>
-            <h2>Editar Usuário</h2>
-            <form action='edita_usuario.php' method='post'>
-                <label>Informe o nome</label><input type='text' name='nome' id='nome' value='$nome' placeholder='Nome'>
-                <label>Informe a senha</label><input type='text' name='senha' id='senha' placeholder='senha'>
-                <label>Informe o email</label><input type='text' name='email' id='email' value='$email' placeholder='email'>
-                <label>Selecione o tipo</label><select name='ranking' id='ranking'>
-                    <option value='1' $r_admin>Admin</option>
-                    <option value='2' $r_operador>Operador</option>
-                    <option value='3' $r_cliente>Cliente</option>
-                    <option value='4' $r_key>Key Account</option>
-                    <option value='5' $r_estoquista>Estoquista</option>
-                </select>
-                <input type='hidden' name='id_usuario' id='id_usuario' value='$id_usuario'>
-                <input type='submit' value='Salvar'>
-            </form>
-        </div>";
+        echo "<div class='bloco_centro'>
+                <div class='content'>
+                <h2>Editar Usuário</h2>
+                <form action='edita_usuario.php' method='post'>
+                    <label>Informe o nome</label><input type='text' name='nome' id='nome' value='$nome' placeholder='Nome'>
+                    <label>Informe a senha</label><input type='text' name='senha' id='senha' placeholder='senha'>
+                    <label>Informe o email</label><input type='text' name='email' id='email' value='$email' placeholder='email'>
+                    <label>Selecione o tipo</label><select name='ranking' id='ranking'>
+                        <option value='1' $r_admin>Admin</option>
+                        <option value='2' $r_operador>Operador</option>
+                        <option value='3' $r_cliente>Cliente</option>
+                        <option value='4' $r_key>Key Account</option>
+                        <option value='5' $r_estoquista>Estoquista</option>
+                    </select>
+                    <input type='hidden' name='id_usuario' id='id_usuario' value='$id_usuario'>
+                    <input type='submit' value='Salvar'>
+                </form>
+                </div>
+            </div>";
     }
 
     if ($acao == "novo" && $user_ranking == '1') {
-        echo "<div class='formulario'>
+        echo "<div class='bloco_centro'>
+            <div class='content'>
             <h2>Novo Usuário</h2>
             <form action='insere_usuario.php' method='post'>
                 <label>Informe o nome</label><input type='text' name='nome' id='nome' placeholder='Nome do usuário (login)' required>
@@ -114,6 +117,7 @@
                 </select>
                 <input type='submit' value='Salvar'>
             </form>
+            </div>
         </div>";
     }
 ?>

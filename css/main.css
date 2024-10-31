@@ -57,15 +57,13 @@ table, th, td {
 th {
     padding: 6px;
     text-align: center;
-    width: 100px;
     background-color: #00893f;
     color: white;
     white-space: nowrap;
 }
 td {
     padding: 6px;
-    text-align: center;
-    width: 100px;
+    text-align: left;
     white-space: nowrap;
 }
 ul {
@@ -151,7 +149,7 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: left;
-    max-width: 520px;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -164,4 +162,8 @@ footer {
     border-radius: 10px;
     text-align: left;
 }
-  
+.centro {
+    padding: 6px;
+    text-align: center;
+    white-space: nowrap;
+}

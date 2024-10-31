@@ -25,7 +25,7 @@
                 <h2>Eventos realizados</h2>
                 <table>
                     <tr>
-                        <th>Data</th>
+                        <th style='width: 20px;'>Data</th>
                         <th>SAP</th>
                         <th>Cliente</th>
                         <th>Cabelo</th>
@@ -43,13 +43,13 @@
                 <td style='font-weight: bold;'>TOTAIS</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td>$total_cabelereiro</td>
-                <td>$total_manicure</td>
-                <td>$total_acuidade</td>
-                <td>$total_atd_saude</td>
-                <td>$total_vacinas</td>
-                <td>$total_telemedicina</td>
-                <td>$total_pulseiras</td>
+                <td class='centro'>$total_cabelereiro</td>
+                <td class='centro'>$total_manicure</td>
+                <td class='centro'>$total_acuidade</td>
+                <td class='centro'>$total_atd_saude</td>
+                <td class='centro'>$total_vacinas</td>
+                <td class='centro'>$total_telemedicina</td>
+                <td class='centro'>$total_pulseiras</td>
             </tr>";
         
         while ($row_parada = mysqli_fetch_assoc($result_parada)) {
@@ -69,15 +69,15 @@
 
                 echo "<tr style='background-color:$cor_fundo'>
                         <td>" . $ver_data . "</td>
-                        <td>" . $row_cliente['sap'] . "</td>
+                        <td class='centro'>" . $row_cliente['sap'] . "</td>
                         <td>" . $row_cliente['razao'] . "</td>
-                        <td>" . $row_parada['cabelereiro'] . "</td>
-                        <td>" . $row_parada['manicure'] . "</td>
-                        <td>" . $row_parada['acuidade'] . "</td>
-                        <td>" . $row_parada['atd_saude'] . "</td>
-                        <td>" . $row_parada['vacinas'] . "</td>
-                        <td>" . $row_parada['telemedicina'] . "</td>
-                        <td>" . $row_parada['pulseiras'] . "</td>
+                        <td class='centro'>" . $row_parada['cabelereiro'] . "</td>
+                        <td class='centro'>" . $row_parada['manicure'] . "</td>
+                        <td class='centro'>" . $row_parada['acuidade'] . "</td>
+                        <td class='centro'>" . $row_parada['atd_saude'] . "</td>
+                        <td class='centro'>" . $row_parada['vacinas'] . "</td>
+                        <td class='centro'>" . $row_parada['telemedicina'] . "</td>
+                        <td class='centro'>" . $row_parada['pulseiras'] . "</td>
                     </tr>";
             }
         }

@@ -7,21 +7,21 @@ include 'header.php';
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conn, $sql);
 
+    echo "<div class='top-menu'><button><a href='$_SELF'>NOVO</a></button></div>";
+
     echo "<div class='content'>
-            <button><a href='$_SELF'>NOVO</a></button>
-            <h1>Clientes</h1>
-                <table>
-                    <tr>
-                        <th>#</th>
-                        <th>Nome</th>
-                        <th>SAP</th>
-                        <th>UF</th>
-                        <th>Cidade</th>
-                        <th>Contato</th>
-                        <th>Social</th>
-                        <th>Detalhes</th>
-                        <th>Cliente</th>
-                    </tr>";
+            <h1>Clientes, Distribuidores e Representantes</h1>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>SAP</th>
+                    <th style='width: 500px';>Endereço</th>
+                    <th>Contato</th>
+                    <th>Social</th>
+                    <th>Detalhes</th>
+                    <th>Cliente</th>
+                </tr>";
     
     while ($row = mysqli_fetch_assoc($result)) {
 
@@ -54,18 +54,17 @@ include 'header.php';
         $row['cep'] = substr($row['cep'], 0, 5) . '-' . substr($row['cep'], 5);
 
         echo "<tr style='background-color:" . $cor_fundo . "'>
-                <td>" . $i . "</td>
+                <td style='text-align:center;'>" . $i . "</td>
                 <td>" . $row['razao'] . "</td>
-                <td>" . $row['sap'] . "</td>
-                <td>" . $row['uf'] . "</td>
-                <td>" . $row['cidade'] . "</td>
-                <td><button><a href='detalhes_contatos.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>CONTATO</a></button></td>
-                <td><button><a href='detalhes_sociais.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>M. SOCIAIS</a></button></td>
-                <td><button><a href='detalhes_clientes.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>DADOS</a></button></td>
-                <td>" . $ver_tipo . "</td>
+                <td class='centro'>" . $row['sap'] . "</td>
+                <td><details><summary>" . $row['cidade'] . "/" . $row['uf'] . "</summary>" . $row['endereco'] . " - " . $row['bairro'] . " - CEP " . $row['cep'] . "</details></td>
+                <td style='text-align:center;'><button><a href='detalhes_contatos.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>CONTATO</a></button></td>
+                <td style='text-align:center;'><button><a href='detalhes_sociais.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>M. SOCIAIS</a></button></td>
+                <td style='text-align:center;'><button><a href='detalhes_clientes.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>DADOS</a></button></td>
+                <td style='text-align:center;font-weight: bold;'>" . $ver_tipo . "</td>
             </tr>";
     }
     
-    echo "</table></div>";
+    echo "</table></div></div>";
     include 'footer.php';
 ?>
