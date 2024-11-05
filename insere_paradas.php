@@ -1,4 +1,5 @@
 <?PHP
+
     include "conecta.php";
 
     $id_cliente = $_POST['id_cliente'];

@@ -19,6 +19,10 @@
     $sql_clientes = "SELECT * FROM clientes order by uf,cidade";
     $result_clientes = mysqli_query($conn, $sql_clientes);
 
+    /**
+     * Form para inclusão de paradas
+    */
+    
     echo" <form action='insere_paradas.php' method='POST'>
             <div class='content'>
              <h2>Incluir</h2>
@@ -38,8 +42,12 @@
             </div>
             </form>";
 
+    /**
+     * Listagem de paradas
+     */
+
     echo "<div class='content'>
-                <h2>Paradas</h2>
+                <h2>Roteiro</h2>
                 <table>
                     <tr>
                         <th>#</th>
@@ -50,9 +58,12 @@
                         <th>Endereco</th>
                         <th>UF</th>
                         <th>Cidade</th>
-                        <th>Números</th>
-                        <th>Anotações</th>
                     </tr>";
+
+    $dias_semana = [
+        'Domingo', 'Segunda-feira', 'Terça-feira', 
+        'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'
+    ];
 
     while ($row_parada = mysqli_fetch_assoc($result_paradas)) {
      
@@ -60,20 +71,15 @@
         $fk_cliente = $row_parada['fk_cliente'];
         $evento_data_inicio = $row_parada['evento_data_inicio'];
 
-        $dia_semana = date('w', strtotime($evento_data_inicio));
+        $dia_evento = date('w', strtotime($evento_data_inicio));
         
-        if ($dia_semana == 6 or $dia_semana == 0) {
+        if ($dia_evento == 6 or $dia_evento == 0) {
             $cor_fundo = "yellow";
         } else {
             $cor_fundo = "white";
         }
 
-        $dias_semana = [
-            'Domingo', 'Segunda-feira', 'Terça-feira', 
-            'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'
-        ];
-
-        $ver_dia_semana = $dias_semana[$dia_semana];
+        $ver_dia_semana = $dias_semana[$dia_evento];
         $ver_data_limpa = date('d/m/Y', strtotime($evento_data_inicio));
 
         $sql_cliente = "SELECT * FROM clientes WHERE id_cliente = $fk_cliente";
@@ -104,30 +110,20 @@
             $ajuste_datas = "$ver_data_limpa";
         }
 
-        // Se o usuário for o administrador ou o operador, ele pode inserir números e anotações
-
-        if ($fk_cliente < 1000 and $user_ranking == 1 or $user_ranking == 2) {
-            $insere_numeros = "<button value='VER'><a href='insere_numeros.php?id_parada=" . $row_parada['id_parada'] . "&razao=" . $razao . "'>VER</a></button>";
-            $insere_anotacoes = "<button value='VER'><a href='insere_anotacoes.php?id_parada=" . $row_parada['id_parada'] . "'>VER</a></button>";
-        }
-        else {
-            $insere_numeros = "&nbsp;";
-            $insere_anotacoes = "&nbsp;";
-        }
+        $sap = $row_cliente['sap'];
+        $endereco = $row_cliente['endereco'];
+        $uf = $row_cliente['uf'];
+        $cidade = $row_cliente['cidade'];
 
         echo "<tr style='background-color:" . $cor_fundo . "'>
-                <td>" . $i . "</td>";
-        
-        echo "  <td>" . $ajuste_datas . "</td>";
-
-        echo "  <td>" . $ver_dia_semana . "</td>
-                <td>" . $row_cliente['sap'] . "</td>
-                <td>" . $razao . "</td>
-                <td>" . $row_cliente['endereco'] . "</td>
-                <td>" . $row_cliente['uf'] . "</td>
-                <td>" . $row_cliente['cidade'] . "</td>
-                <td>$insere_numeros</td>
-                <td>$insere_anotacoes</td>
+                <td class='centro'>" . $i . "</td>
+                <td class='centro'>" . $ajuste_datas . "</td>
+                <td class='centro'>" . $ver_dia_semana . "</td>
+                <td class='centro'>" . $sap . "</td>
+                <td style='width:500px;'>" . $razao . "</td>
+                <td style='width:500px;'>" . $endereco . "</td>
+                <td class='centro'>" . $uf . "</td>
+                <td class='centro'>" . $cidade . "</td>
             </tr>";
     }
 

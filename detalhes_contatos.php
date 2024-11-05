@@ -4,9 +4,14 @@
     $sql_contatos = "SELECT * FROM contatos WHERE fk_cliente = " . $_GET['id_cliente'];
     $result_contatos = mysqli_query($conn, $sql_contatos);
 
-    echo "<div class='content'>
-            <button><a href='$_SELF'>NOVO</a></button>
-            <h1>Contatos de " . $_GET['razao'] . "</h1>
+    $id_cliente = $_GET['id_cliente'];
+    $razao = $_GET['razao'];
+
+    echo "<div class='top-menu'>
+            <button><a href='insere_contato.php?id_cliente=$id_cliente'>NOVO</a></button>
+            </div>
+            <div class='bloco_centro'><div class='content'>
+            <h1>Contatos de " . $razao . "</h1>
                 <table>
                     <tr>
                         <th>Nome</th>
@@ -26,6 +31,6 @@
             </tr>";
     }
 
-    echo "</table>
-        </div>";
+    echo "</table>";
+   echo "</div></div>";
 ?>

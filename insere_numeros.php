@@ -1,4 +1,9 @@
 <?php 
+
+    /**
+     * Formulário para inserção de números em paradas e rotina para inserir na base
+     */
+
     include 'header.php';
 
     $acao = $_POST['acao'];

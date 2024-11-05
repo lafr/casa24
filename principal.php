@@ -27,7 +27,7 @@
                     <tr>
                         <th style='width: 20px;'>Data</th>
                         <th>SAP</th>
-                        <th>Cliente</th>
+                        <th>Parada</th>
                         <th>Cabelo</th>
                         <th>Manicure</th>
                         <th>Acuidade</th>
@@ -35,6 +35,7 @@
                         <th>Vacinas</th>
                         <th>Telemedicina</th>
                         <th>Pulseiras</th>
+                        <th>Anotações</th>
                     </tr>";    
 /**
  *  Fazer o cálculo dos totais
@@ -50,6 +51,7 @@
                 <td class='centro'>$total_vacinas</td>
                 <td class='centro'>$total_telemedicina</td>
                 <td class='centro'>$total_pulseiras</td>
+                <td class='centro'>&nbsp;</td>
             </tr>";
         
         while ($row_parada = mysqli_fetch_assoc($result_parada)) {
@@ -66,11 +68,17 @@
                 } else {
                     $cor_fundo = "lightgray";
                 }
+            
+            if ($user_ranking == 1 or $user_ranking == 2) {
+                $link_numeros = "insere_numeros.php?id_parada=" . $row_parada['id_parada'] . "&razao=" . $row_cliente['razao'];
+            }   else {
+                $link_numeros = "#";
+            }
 
                 echo "<tr style='background-color:$cor_fundo'>
                         <td>" . $ver_data . "</td>
                         <td class='centro'>" . $row_cliente['sap'] . "</td>
-                        <td>" . $row_cliente['razao'] . "</td>
+                        <td><a href='$link_numeros' decoration='none'>" . $row_cliente['razao'] . "</a></td>
                         <td class='centro'>" . $row_parada['cabelereiro'] . "</td>
                         <td class='centro'>" . $row_parada['manicure'] . "</td>
                         <td class='centro'>" . $row_parada['acuidade'] . "</td>
@@ -78,6 +86,7 @@
                         <td class='centro'>" . $row_parada['vacinas'] . "</td>
                         <td class='centro'>" . $row_parada['telemedicina'] . "</td>
                         <td class='centro'>" . $row_parada['pulseiras'] . "</td>
+                        <td class='centro'><button><a href='anotacoes.php?id_parada=" . $row_parada['id_parada'] . "'>Anotações</a></button></td>
                     </tr>";
             }
         }

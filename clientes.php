@@ -1,16 +1,16 @@
 <?PHP
 
-// ajustar o layout
+// 
 
 include 'header.php';
 
     $sql = "SELECT * FROM clientes";
     $result = mysqli_query($conn, $sql);
 
-    echo "<div class='top-menu'><button><a href='$_SELF'>NOVO</a></button></div>";
+    echo "<div class='top-menu'><button><a href='insere_cliente.php'>NOVO</a></button></div>";
 
     echo "<div class='content'>
-            <h1>Clientes, Distribuidores e Representantes</h1>
+            <h1>Vibra, Distribuidores e Representantes</h1>
             <table>
                 <tr>
                     <th>#</th>

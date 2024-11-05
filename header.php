@@ -42,7 +42,7 @@
 
         <div class="top-bar">
             <button><a href="principal.php">Início</a></button>
-            <button><a href="paradas.php">Paradas</button</a></button>
+            <button><a href="paradas.php">Roteiro</button</a></button>
             <button><a href="clientes.php">Clientes</a></button>
             <button><a href="brindes.php">Brindes</a></button>
             <button><a href="usuarios.php">Usuários</a></button>
