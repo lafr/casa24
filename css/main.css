@@ -168,8 +168,6 @@ footer {
     white-space: nowrap;
 }
 
-//FIXME: colocar itens lado a lado nos formulários
-
 .form-inline {
     display: flex;
     flex-wrap: wrap;
