@@ -167,3 +167,19 @@ footer {
     text-align: center;
     white-space: nowrap;
 }
+
+//FIXME: colocar itens lado a lado nos formulários
+
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-inline input,
+.form-inline select,
+.form-inline radio,
+.form-inline button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

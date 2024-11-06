@@ -35,6 +35,8 @@
                         <th>Vacinas</th>
                         <th>Telemedicina</th>
                         <th>Pulseiras</th>
+                        <th>PRF</th>
+                        <th>SEST</th>
                         <th>Anotações</th>
                     </tr>";    
 /**
@@ -51,6 +53,8 @@
                 <td class='centro'>$total_vacinas</td>
                 <td class='centro'>$total_telemedicina</td>
                 <td class='centro'>$total_pulseiras</td>
+                <td class='centro'>$total_prf</td>
+                <td class='centro'>$total_sest</td>
                 <td class='centro'>&nbsp;</td>
             </tr>";
         
@@ -86,6 +90,8 @@
                         <td class='centro'>" . $row_parada['vacinas'] . "</td>
                         <td class='centro'>" . $row_parada['telemedicina'] . "</td>
                         <td class='centro'>" . $row_parada['pulseiras'] . "</td>
+                        <td class='centro'>" . $row_parada['prf'] . "</td>
+                        <td class='centro'>" . $row_parada['sest'] . "</td>
                         <td class='centro'><button><a href='anotacoes.php?id_parada=" . $row_parada['id_parada'] . "'>Anotações</a></button></td>
                     </tr>";
             }

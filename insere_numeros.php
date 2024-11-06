@@ -19,8 +19,10 @@
         $vacinas = $_POST['vacinas'];
         $telemedicina = $_POST['telemedicina'];
         $pulseiras = $_POST['pulseiras'];
+        $prf = $_POST['prf'];
+        $sest = $_POST['sest'];
 
-        $sql_insere = "UPDATE paradas set cabelereiro='$cabelereiro', manicure='$manicure', acuidade='$acuidade', atd_saude='$atd_saude', vacinas='$vacinas', telemedicina='$telemedicina', pulseiras='$pulseiras' where id_parada = '$id_parada'";
+        $sql_insere = "UPDATE paradas set cabelereiro='$cabelereiro', manicure='$manicure', acuidade='$acuidade', atd_saude='$atd_saude', vacinas='$vacinas', telemedicina='$telemedicina', pulseiras='$pulseiras', prf='$prf', sest='$sest' where id_parada = '$id_parada'";
         $result_insere = mysqli_query($conn, $sql_insere);
 
         header("Location: principal.php");
@@ -46,6 +48,10 @@
             <input type="number" name="telemedicina" id="telemedicina" required min="0">
             <label for="pulseiras">Pulseira de identificação:</label>
             <input type="number" name="pulseiras" id="pulseiras" required min="0">
+            <label for="prf">PRF:</label>
+            <input type='number' name='prf' id='prf' required min="0">
+            <label for="sest">SEST/SENAT:</label>
+            <input type='number' name='sest' id='sest' required min="0">
             <input type="hidden" name="id_parada" id="id_parada" value="<?php echo $id_parada = $_GET['id_parada']; ?>">
             <input type="hidden" name="acao" value="insere">
             <input type="submit" value="Inserir">
