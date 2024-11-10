@@ -83,6 +83,20 @@ if ($result_anotacoes->num_rows > 0) {
         } else {
             $ver_status = 'Cancelado';
         }
+        if ($opiniao_visitantes == 1) {
+            $opiniao_visitantes = 'Fraca';
+        } elseif ($opiniao_visitantes == 2) {
+            $opiniao_visitantes = 'Média';
+        } else {
+            $opiniao_visitantes = 'Boa';
+        }
+        if ($opiniao_geral == 1) {
+            $opiniao_geral = 'Fraca';
+        } elseif ($opiniao_geral == 2) {
+            $opiniao_geral = 'Média';
+        } else {
+            $opiniao_geral = 'Boa';
+        }
 
         echo "      <tr style='background-color:lightgrey;'>
                         <td width='150' style='font-weight:bold;'>Criação:</td><td width='150'>$data_criacao</td>

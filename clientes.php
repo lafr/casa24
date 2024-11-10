@@ -58,8 +58,8 @@ include 'header.php';
                 <td>" . $row['razao'] . "</td>
                 <td class='centro'>" . $row['sap'] . "</td>
                 <td><details><summary>" . $row['cidade'] . "/" . $row['uf'] . "</summary>" . $row['endereco'] . " - " . $row['bairro'] . " - CEP " . $row['cep'] . "</details></td>
-                <td style='text-align:center;'><button><a href='detalhes_contatos.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>CONTATO</a></button></td>
-                <td style='text-align:center;'><button><a href='detalhes_sociais.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>M. SOCIAIS</a></button></td>
+                <td style='text-align:center;'><button><a href='contatos.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>CONTATO</a></button></td>
+                <td style='text-align:center;'><button><a href='msociais.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>M. SOCIAIS</a></button></td>
                 <td style='text-align:center;'><button><a href='detalhes_clientes.php?id_cliente=" . $row['id_cliente'] . "&razao=" . $row['razao'] . "'>DADOS</a></button></td>
                 <td style='text-align:center;font-weight: bold;'>" . $ver_tipo . "</td>
             </tr>";
