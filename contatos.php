@@ -1,11 +1,11 @@
 <?php 
     include 'header.php';
 
-    $sql_contatos = "SELECT * FROM contatos WHERE fk_cliente = " . $_GET['id_cliente'];
-    $result_contatos = mysqli_query($conn, $sql_contatos);
-
     $id_cliente = $_GET['id_cliente'];
     $razao = $_GET['razao'];
+
+    $sql_contatos = "SELECT * FROM contatos WHERE fk_cliente = " . $id_cliente;
+    $result_contatos = mysqli_query($conn, $sql_contatos);
 
     echo "<div class='top-menu'>
             <button><a href='insere_contato.php?id_cliente=$id_cliente&razao=$razao'>NOVO</a></button>
