@@ -56,7 +56,7 @@
                 <td>$ver_ranking</td>
                 <td>$ultimo_acesso</td>
                 <td><button><a href='usuarios.php?ver_id_usuario=$id_usuario&acao=editar'>Editar</a></button></td>
-              </tr>";
+            </tr>";
     }
     
     echo "</table></div>";

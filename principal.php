@@ -42,21 +42,21 @@
 /**
  *  Fazer o cálculo dos totais
  */
-        echo "<tr style='background-color: #ffc000'>
-                <td style='font-weight: bold;'>TOTAIS</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td class='centro'>$total_cabelereiro</td>
-                <td class='centro'>$total_manicure</td>
-                <td class='centro'>$total_acuidade</td>
-                <td class='centro'>$total_atd_saude</td>
-                <td class='centro'>$total_vacinas</td>
-                <td class='centro'>$total_telemedicina</td>
-                <td class='centro'>$total_pulseiras</td>
-                <td class='centro'>$total_prf</td>
-                <td class='centro'>$total_sest</td>
-                <td class='centro'>&nbsp;</td>
-            </tr>";
+                echo "<tr style='background-color: #ffc000'>
+                        <td style='font-weight: bold;'>TOTAIS</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class='centro'>$total_cabelereiro</td>
+                        <td class='centro'>$total_manicure</td>
+                        <td class='centro'>$total_acuidade</td>
+                        <td class='centro'>$total_atd_saude</td>
+                        <td class='centro'>$total_vacinas</td>
+                        <td class='centro'>$total_telemedicina</td>
+                        <td class='centro'>$total_pulseiras</td>
+                        <td class='centro'>$total_prf</td>
+                        <td class='centro'>$total_sest</td>
+                        <td class='centro'>&nbsp;</td>
+                    </tr>";
         
         while ($row_parada = mysqli_fetch_assoc($result_parada)) {
             $sql_cliente = "SELECT * FROM clientes WHERE id_cliente = " . $row_parada['fk_cliente'];

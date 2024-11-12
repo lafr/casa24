@@ -133,45 +133,4 @@ if ($result_anotacoes->num_rows > 0) {
     echo "      </table>
                 </div>
             </div>";
-
-/*
- $sql_anotacoes = "SELECT * FROM anotacoes WHERE fk_parada = '$fk_parada'";
-    $result_anotacoes = mysqli_query($conn, $sql_anotacoes);
-
-    echo "<div class='bloco_cetro'><div class='content'>
-            <h2>Anotações</h2>
-            <table>
-                <tr>
-                    <th style='width: 80px;'>Criação</th>
-                    <th style='width: 80px;'>ver_status</th>
-                    <th style='width: 80px;'>Ultima Interação</th>
-                    <th style='width: 600px;'>Descrição</th>
-                    <th style='width: 80px;'>Detalhamento</th>
-                </tr>";
-                    
-                $data_criacao = $row_anotacao['data_criacao'];
-                $ultima_interacao = $row_anotacao['ultima_interacao'];
-                $descricao = $row_anotacao['descricao'];
-                $brindes = $row_anotacao['brindes'];
-                $msociais = $row_anotacao['msociais'];
-                $contsto_responsavel = $row_anotacao['contato_responsavel'];
-                $show_posto = $row_anotacao['show_posto'];
-                $ab = $row_anotacao['ab'];
-                $promocao = $row_anotacao['promocao'];
-                $opiniao_visitantes = $row_anotacao['opiniao_visitantes'];
-                $opiniao_geral = $row_anotacao['opiniao_geral'];
-                $ver_status = $row_anotacao['ver_status'];
-
-    while ($row_anotacao = mysqli_fetch_assoc($result_anotacoes)) {
-            echo "<tr>
-                    <td>$data_criacao</td>
-                    <td>$ver_status</td>
-                    <td>$ultima_interacao</td>
-                    <td>$descricao</td>
-                    <td>&nbsp;</td>
-                </tr>";
-    }
-
-    echo "</table></div></div>";
-*/
 ?>

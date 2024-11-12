@@ -25,7 +25,7 @@
     
     echo" <form action='insere_paradas.php' method='POST'>
             <div class='content'>
-             <h2>Incluir</h2>
+            <h2>Incluir</h2>
                 <input type='date' name='evento_data_inicio' required> 
                 <select name='id_cliente'>
                 <option value='1000'>Descanso</option>
@@ -38,7 +38,7 @@
                 }
 
     echo "      </select>
-               <input type='submit' value='INCLUIR PARADA' required>
+                <input type='submit' value='INCLUIR PARADA' required>
             </div>
             </form>";
 
@@ -66,7 +66,6 @@
     ];
 
     while ($row_parada = mysqli_fetch_assoc($result_paradas)) {
-     
         $id_parada = $row_parada['id_parada'];
         $fk_cliente = $row_parada['fk_cliente'];
         $evento_data_inicio = $row_parada['evento_data_inicio'];

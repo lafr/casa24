@@ -61,6 +61,6 @@
     while($row_pulseiras = $result_pulseiras->fetch_assoc()) {
         $total_pulseiras += $row_pulseiras['pulseiras'];
     }
-   
+    
     $total_geral = $total_cabelereiro + $total_manicure + $total_acuidade + $total_atd_saude + $total_vacinas + $total_telemedicina + $total_pulseiras;
 ?>
