@@ -41,7 +41,7 @@
                 <td>$qtd_inicial</td>
                 <td>$qtd_atual</td>
                 <td><button><a href='brindes.php?acao=repor&id_brinde=$id_brinde'>Repor</a></button>&nbsp;<button><a href='brindes.php?acao=retirar&id_brinde=$id_brinde'>Retirar</a></button></td>
-              </tr>";
+            </tr>";
     }
 
     echo "</table></div>";
@@ -83,7 +83,7 @@
                 $qtd_atual = $row_brindes['qtd_atual'];
             
                 echo "<div class='content'><fieldset><form action='edita_brindes.php' method='post'>
-                 <h2>Repor brindes</h2>
+                    <h2>Repor brindes</h2>
                     $nome | qtd.: $qtd_atual<br>
                     <input type='number' name='qtd' id='qtd' required><br>
                     <input type='hidden' name='id_brinde' value='$id_brinde'>
