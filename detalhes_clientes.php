@@ -17,13 +17,40 @@
             $ver_tipo = 'Indefinido';
             break;
     }
+
+    if ($_POST) {
+        $razao = $_POST['razao'];
+        $sap = $_POST['sap'];
+        $cnpj = $_POST['cnpj'];
+        $endereco = $_POST['endereco'];
+        $bairro = $_POST['bairro'];
+        $cep = $_POST['cep'];
+        $cidade = $_POST['cidade'];
+        $uf = $_POST['uf'];
+        $representante = $_POST['representante'];
+        $ddd = $_POST['ddd'];
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
+        $responsavel = $_POST['responsavel'];
+        $tipo = $_POST['tipo'];
+
+        $sql_update = "UPDATE clientes SET razao = '$razao', sap = '$sap', cnpj = '$cnpj', endereco = '$endereco', bairro = '$bairro', cep = '$cep', cidade = '$cidade', uf = '$uf', representante = '$representante', ddd = '$ddd', telefone = '$telefone', email = '$email', responsavel = '$responsavel', tipo = '$tipo' WHERE id_cliente = " . $_GET['id_cliente'];
+        $result_update = mysqli_query($conn, $sql_update);
+
+        if ($result_update) {
+            echo "<script>alert('Cliente atualizado com sucesso!');</script>";
+            echo "<script>window.location.href='clientes.php';</script>";
+        } else {
+            echo "<script>alert('Erro ao atualizar cliente!');</script>";
+        }
+    }
 ?>
 
 <div class='bloco_centro'> 
     <div class='content'>
         <fieldset>
             <h2>Detalhes de <?php echo $row_clientes['razao']; ?></h2>
-            <form action='$_SELF' method='post'>
+            <form action='detalhes_clientes.php' method='post'>
                 <label for="razao">Razão Social</label><input type='text' name='razao' value='<?php echo $row_clientes['razao']; ?>'>
                 <label for="sap">SAP</label><input type='text' name='sap' value='<?php echo $row_clientes['sap']; ?>'>
                 <label for="cnpj">CNPJ (apenas números)</label><input type='number' name='cnpj' value='<?php echo $row_clientes['cnpj']; ?>' >
@@ -42,6 +69,7 @@
                     <option value='1'>Vibra</option>
                     <option value='2'>Cooper/Goodyear</option>
                 </datalist>
+                <input type='submit' value='Salvar'>
             </form>
         </fieldset> 
     </div>
