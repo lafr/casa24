@@ -1,57 +1,23 @@
-<?PHP
+<?php
+  // relatório de brindes, total geral, log de retiradas, log de reposições
+  // relatório de interações, total geral, serviços individuais
+  // relatórios por serviços separados por período
+  // Relatório de anotações
 
-// relatório de brindes, total geral, log de retiradas, log de reposições
-// relatório de interações, total geral, serviços individuais
-// relatórios por serviços separados por período
-
-include 'header.php';
+  include 'header.php';
 ?>
 
-<html>
-  <head>
-      <!--Load the AJAX API-->
-      <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
-      <script type='text/javascript'>
-        // Load the Visualization API and the corechart package.
-        google.charts.load('current', {'packages':['corechart']});
+<div style="display: flex; flex-wrap: wrap; width: 100%;">
+  <a href="relatorio_interacoes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #7B68EE;">Interações</a>
+  <a href="relatorio_grafico.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #CD853F;">Gráficos</a>
+  <a href="relatorio_brindes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #20B2AA;">Brindes</a>
+  <a href="relatorio_anotacoes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #708090;">Anotações das paradas</a>
+  <a href="relatorios_clientes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #FFDAB9	;">Postos e Centros</a>
+  <a href="relatorio_contatos.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #BC8F8F;">Contatos</a>
+  <a href="relatorio_sociais.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #ADFF2F;">Mídias Sociais</a>
+  <a href="relatorios_estatisticas.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #D8BFD8;">Estatísticas</a>
+</div>
 
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart);
-
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
-        function drawChart() {
-
-            // Create the data table.
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Topping');
-            data.addColumn('number', 'Slices');
-            data.addRows([
-            ['Mushrooms', 3],
-            ['Onions', 1],
-            ['Olives', 1],
-            ['Zucchini', 1],
-            ['Pepperoni', 2]
-            ]);
-
-            // Set chart options
-            var options = {'title':'How Much Pizza I Ate Last Night',
-              'width':800,
-              'height':600};
-
-            // Instantiate and draw our chart, passing in some options.
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
-      </script>
-</head>
-
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id='chart_div'></div>
-  </body>
-</html>";
 <?php~
   include "footer.php";
 ?>

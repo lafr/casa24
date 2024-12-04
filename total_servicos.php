@@ -61,6 +61,22 @@
     while($row_pulseiras = $result_pulseiras->fetch_assoc()) {
         $total_pulseiras += $row_pulseiras['pulseiras'];
     }
+
+    $sql_sest = "SELECT sest FROM paradas where sest > 0";
+    $result_sest = mysqli_query($conn, $sql_sest);
+
+    $total_sest = 0;
+    while($row_sest = $result_sest->fetch_assoc()) {
+        $total_sest += $row_sest['sest'];
+    }
     
-    $total_geral = $total_cabelereiro + $total_manicure + $total_acuidade + $total_atd_saude + $total_vacinas + $total_telemedicina + $total_pulseiras;
+    $sql_prf = "SELECT prf FROM paradas where prf > 0";
+    $result_prf = mysqli_query($conn, $sql_prf);
+
+    $total_prf = 0;
+    while($row_prf = $result_prf->fetch_assoc()) {
+        $total_prf += $row_prf['prf'];
+    }
+
+    $total_geral = $total_cabelereiro + $total_manicure + $total_acuidade + $total_atd_saude + $total_vacinas + $total_telemedicina + $total_pulseiras + $total_ssenat + $total_prf;
 ?>
