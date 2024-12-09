@@ -11,42 +11,62 @@
         data.addColumn("number", "X")
         data.addColumn("number", "Interações")	
 
-        data.addRows([
-            [0, 0],
-            [1, 30],
-            [2, 23],
-            [3, 17],
-            [4, 18],
-            [5, 9],
-            [6, 11],
-            [7, 27],
-            [8, 33],
-            [9, 40],
-            [10, 32],
-        ])
+<?php
+    include "conecta.php";
 
-        var options = {
+    $sql_paradas = "SELECT * FROM paradas";
+    $result_paradas = $conn->query($sql_paradas);
+
+    if ($result_paradas->num_rows > 0) {
+        $i = 0;
+        echo "data.addRows([";
+        while($row_paradas = $result_paradas->fetch_assoc()) {
+            $i++;
+            $evento_data_inicio = $row_paradas['evento_data_inicio'];
+            $cabelereior = $row_paradas['cabelereiro'];
+            $manicure = $row_paradas['manicure'];
+            $acuidade = $row_paradas['acuidade'];
+            $atd_saude = $row_paradas['atd_saude'];
+            $telemedicina = $row_paradas['telemedicina'];
+            $pulseiras = $row_paradas['pulseiras'];
+            $prf = $row_paradas['prf'];
+            $sest = $row_paradas['sest'];
+
+            $interacoes = $cabelereiro + $manicure + $acuidade + $atd_saude + $telemedicina + $pulseiras + $prf + $sest;
+
+            echo "[" . $i . ", " . $interacoes . "],";
+        }
+
+        echo "])";
+
+    } else {
+        echo "0 results";
+    }
+
+    echo"
+            var options = {
             hAxis: {
-            title: "Time",
+            title: 'Eventos',
             },
             vAxis: {
-            title: "Popularity",
+            title: 'Interações',
             },
-            backgroundColor: "#f1f8e9",
+            backgroundColor: '#f1f8e9',
         }
 
         var chart = new google.visualization.LineChart(
-            document.getElementById("chart_div"),
+            document.getElementById('chart_div'),
         )
         chart.draw(data, options)
         }
     </script>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="chart_div"></div>
-
-<?php
-    include "conecta.php";
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <div id='chart_div'></div>
+    </head>
+    <body>
+    </body>
+    </html>";
 
     include "footer.php";
 ?>
