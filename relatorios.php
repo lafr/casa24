@@ -12,7 +12,7 @@
   <a href="relatorio_grafico.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #CD853F;">Gráficos</a>
   <a href="relatorio_brindes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #20B2AA;">Brindes</a>
   <a href="relatorio_anotacoes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #708090;">Anotações das paradas</a>
-  <a href="relatorios_clientes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #FFDAB9	;">Postos e Centros</a>
+  <a href="relatorio_clientes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #FFDAB9	;">Postos e Centros</a>
   <a href="relatorio_contatos.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #BC8F8F;">Contatos</a>
   <a href="relatorio_sociais.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #ADFF2F;">Mídias Sociais</a>
   <a href="relatorios_estatisticas.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #D8BFD8;">Estatísticas</a>
