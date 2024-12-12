@@ -28,10 +28,106 @@
             $row_anotacoes = mysqli_fetch_array($resultado_anotacoes);
 
             $razao = $row_cliente['razao'];
+            $data_criacao = $row_anotacoes['data_criacao'];
             $descricao = $row_anotacoes['descricao'];
+            $brindes = $row_anotacoes['brindes'];
+            $msociais = $row_anotacoes['msociais'];
+            $contato_responsavel = $row_anotacoes['contato_responsavel'];
+            $show_posto = $row_anotacoes['show_posto'];
+            $ab = $row_anotacoes['ab'];
+            $promocao = $row_anotacoes['promocao'];
+            $opiniao_visitantes = $row_anotacoes['opiniao_visitantes'];
+            $opiniao_geral = $row_anotacoes['opiniao_geral'];
+            $ver_status = $row_anotacoes['ver_status'];
 
-            echo $razao . "<br>";
-            echo $descricao . "<br>";
+            $data_criacao = date('d/m/Y', strtotime($data_criacao));
+
+            if ($brindes == 1) {
+                $brindes = 'Sim';
+            } else {
+                $brindes = 'Não';
+            }
+            if ($msociais == 1) {
+                $msociais = 'Sim';
+            } else {
+                $msociais = 'Não';
+            }
+            if ($contato_responsavel == 1) {
+                $contato_responsavel = 'Sim';
+            } else {
+                $contato_responsavel = 'Não';
+            }
+            if ($show_posto == 1) {
+                $show_posto = 'Sim';
+            } else {
+                $show_posto = 'Não';
+            }
+            if ($ab == 1) {
+                $ab = 'Sim';
+            } else {
+                $ab = 'Não';
+            }
+            if ($promocao == 1) {
+                $promocao = 'Sim';
+            } else {
+                $promocao = 'Não';
+            }
+            switch ($opiniao_geral) {
+                case 1:
+                    $opiniao_geral = 'Ruim';
+                    break;
+                case 2:
+                    $opiniao_geral = 'Regular';
+                    break;
+                case 3:
+                    $opiniao_geral = 'Bom';
+                    break;
+                }
+                switch ($opiniao_visitantes) {
+                case 1:
+                    $opiniao_visitantes = 'Ruim';
+                    break;
+                case 2:
+                    $opiniao_visitantes = 'Regular';
+                    break;
+                case 3:
+                    $opiniao_visitantes = 'Bom';
+                    break;
+                }
+            if ($ver_status == 1) {
+                $ver_status = 'Ativo';
+            } else {
+                $ver_status = 'Inativo';
+            }
+
+            if ($descricao != '') {
+            echo "<table style='max-width: 800px;'>
+                    <tr style='background: lightgrey';>
+                        <td colspan='8'><h2>$razao</h2></td>
+                    </tr>
+                    <tr>
+                        <td colspan='8'><h3><b>Descrição:</b></h3> <pre style='white-space: pre-wrap;'>$descricao</pre></td>
+                    </tr>
+                    <tr>
+                        <td><b>Data de Criação:</b></td><td>$data_criacao</td>
+                        <td><b>Brindes:</b></td><td>$brindes</td>
+                        <td><b>Redes Sociais:</b></td><td>$msociais</td>
+                        <td><b>Contato Responsável:</b></td><td>$contato_responsavel</td>
+                    </tr>
+                    <tr>
+                        <td><b>Show no Posto:</b></td><td>$show_posto</td>
+                        <td><b>AB:</b></td><td>$ab</td>
+                        <td><b>Promoção:</b></td><td>$promocao</td>
+                        <td>&nbsp;</td><td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Opinião Geral:</b></td><td>$opiniao_geral</td>
+                        <td><b>Opinião dos Visitantes:</b></td><td>$opiniao_visitantes</td>
+                        <td>&nbsp;</td><td>&nbsp;</td>
+                        <td><b>Status:</b></td><td>$ver_status</td>
+                    </tr>
+                </bable><br><br>";
+            }
         }
     ?>
 

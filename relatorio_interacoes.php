@@ -11,7 +11,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        window.onload = function() {
+            const element = document.body;
+
+            const options = {
+                margin:       [10, 10, 10, 10],  // [top, left, bottom, right]
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 1,  // Aumenta a resolução
+                    useCORS: true  // Permite carregar imagens de outros domínios
+                },
+                jsPDF:        {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'landscape' // ou 'landscape'
+                }
+            };
+
+            html2pdf().set(options).from(element).save('relatorio_interacoes.pdf');
+        }
+    </script>
 </head>
 <body>
 
@@ -36,8 +57,8 @@
         }
         
         echo "<div class='content'>
-                <h2>Eventos realizados</h2>
-                <table style='width: 1280px;'>
+                <h2>Interações: $total_geral</h2>
+                <table style='width: 1024px;font-size:10px;'>
                     <tr>
                         <th style='width: 20px;'>Data</th>
                         <th>SAP</th>
@@ -55,7 +76,7 @@
     /**
     *  Fazer o cálculo dos totais
     */
-                echo "<tr style='background-color: #ffc000'>
+        echo "      <tr style='background-color: #ffc000'>
                         <td style='font-weight: bold;'>TOTAIS</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
@@ -85,7 +106,7 @@
                     $cor_fundo = "lightgray";
                 }
 
-                echo "<tr style='background-color:$cor_fundo'>
+        echo "      <tr style='background-color:$cor_fundo'>
                         <td>" . $ver_data . "</td>
                         <td class='centro'>" . $row_cliente['sap'] . "</td>
                         <td>" . $row_cliente['razao'] . "</a></td>
@@ -108,14 +129,10 @@
     ?>
 
     <script>
-        window.onload = function() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            doc.text("Relatório Interações", 10, 10);
-            doc.fromHTML(document.body, 10, 20);
-            doc.save('relatorio_interacoes.pdf');
-        };
+        setTimeout(function() {
+            window.location.href = 'principal.php';
+        }, 5000);
     </script>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ $result_anotacoes = $conn->query($sql_anotacoes);
 
     echo "<div class='bloco_centro'>
             <div class='content'>
-            <table>";
+            <table style='max-width: 800px;'>";
 
 if ($result_anotacoes->num_rows > 0) {
     while($row_anotacoes = $result_anotacoes->fetch_assoc()) {
@@ -103,7 +103,7 @@ if ($result_anotacoes->num_rows > 0) {
                         <td width='150' style='font-weight:bold;'>Última interação:</td><td width='150'>$ultima_interacao</td>
                     </tr>
                     <tr rowspan='6'>
-                        <td colspan='4'>Descrição: $descricao</td>
+                        <td colspan='4'>Descrição: <pre style='white-space: pre-wrap;'>$descricao</pre></td>
                     </tr>
                     <tr>
                         <td>Brindes: $brindes</td>
