@@ -4,7 +4,7 @@
   // relatórios por serviços separados por período
   // Relatório de anotações
 
-  include 'header.php';
+  include "header.php";
 ?>
 
 <div style="display: flex; flex-wrap: wrap; width: 100%;">
@@ -15,9 +15,9 @@
   <a href="relatorio_clientes.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #FFDAB9	;">Postos e Centros</a>
   <a href="relatorio_contatos.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #BC8F8F;">Contatos</a>
   <a href="relatorio_sociais.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #ADFF2F;">Mídias Sociais</a>
-  <a href="relatorios_estatisticas.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #D8BFD8;">Estatísticas</a>
+  <a href="relatorio_estatisticas.php" style="flex: 1 0 25%; text-align: center; padding: 20px; box-sizing: border-box; background-color: #D8BFD8;">Estatísticas</a>
 </div>
 
-<?php~
+<?php
   include "footer.php";
 ?>

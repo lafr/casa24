@@ -78,6 +78,7 @@
         <label for="telefone">Telefone (com DDD)): </label>
         <input type="text" class="form-control" id="telefone" name="telefone" required>
     </div>
+<!--
     <div class="form-group">
         <label for="cep">CEP: </label>
         <input type="text" class="form-control" id="cep" name="cep" required>
@@ -130,8 +131,9 @@
             <option value="TO">Tocantins</option>
         </select>
     </div>
+-->
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email (opcional)</label>
         <input type="email" class="form-control" id="email" name="email">
     </div>
     <br>
