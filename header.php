@@ -54,6 +54,7 @@
             <button><a href="brindes.php">Brindes</a></button>
             <button><a href="usuarios.php">Usuários</a></button>
             <button><a href="relatorios.php">Relatórios</a></button>
+            <button><a href="cadastro.php"><b>CADASTROS</b></a></button>
             <button><a href="sair.php">Sair</a></button>
         </div>
 
