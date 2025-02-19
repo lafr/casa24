@@ -28,6 +28,7 @@
         $email = $_POST['email'];
         $termo_uso = $_POST['termo_uso'];
         $privacidade = $_POST['privacidade'];
+        $imagem = $_POST['imagem'];
 
         $cpf = preg_replace('/[^0-9]/', '', $cpf);
         $telefone = preg_replace('/[^0-9]/', '', $telefone);
@@ -47,7 +48,7 @@
             $privacidade = 0;
         }
 
-        $sql = "INSERT INTO cadastro (nome, sobrenome, cpf, telefone, cep, rua, numero, complemento, cidade, estado, email, termo_uso, privacidade) VALUES ('$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$rua', '$numero', '$complemento', '$cidade', '$estado', '$email','$termo_uso', '$privacidade')";
+        $sql = "INSERT INTO cadastro (nome, sobrenome, cpf, telefone, cep, rua, numero, complemento, cidade, estado, email, termo_uso, privacidade, imagem) VALUES ('$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$rua', '$numero', '$complemento', '$cidade', '$estado', '$email','$termo_uso', '$privacidade', '$imagem')";
 
         if ($conn->query($sql) === TRUE) {
             echo "<script>alert('Cadastro realizado com sucesso!');</script>";
@@ -141,7 +142,10 @@
         <label for="termo_uso">Concordo com os <b><a href="termo_uso.html" target="_blank">Termos de uso</a></b></label>
         <input type="checkbox" class="form-control" id="termo_uso" name="termo_uso" value="1"><br>
         <label for="privacidade">Concordo com os <b><a href="privacidade.html" target="_blank">Termos de privacidade</a></b></label>
-        <input type="checkbox" class="form-control" id="privacidade" name="privacidade" value="1">
+        <input type="checkbox" class="form-control" id="privacidade" name="privacidade" value="1"><br>
+        <label for="imagem">Concordo com os <b><a href="termo_uso_imagem.html" target="_blank">Termos de uso da imagem</a></b></label>
+        <input type="checkbox" class="form-control" id="imagem" name="imagem" value="1">
+        
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
